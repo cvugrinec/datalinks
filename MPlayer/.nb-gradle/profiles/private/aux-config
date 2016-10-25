@@ -7,5 +7,15 @@
         <file>file:/Users/chris/Documents/workspace_ice/datalinks/MPlayer/src/main/java/com/datalinks/media.java</file>
       </group>
     </open-files>
+    <editor-bookmarks lastBookmarkId="0" xmlns="http://www.netbeans.org/ns/editor-bookmarks/2"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+      <group>
+        <file>file:/Users/chris/Documents/workspace_ice/datalinks/MPlayer/src/main/java/com/datalinks/media/player/Browser.java</file>
+        <file>file:/Users/chris/Documents/workspace_ice/datalinks/MPlayer/build.gradle</file>
+        <file>file:/Users/chris/Documents/workspace_ice/datalinks/MPlayer/src/main/java/com/datalinks/media/backend/Media.java</file>
+        <file>file:/Users/chris/Documents/workspace_ice/datalinks/MPlayer/src/main/java/com/datalinks/media/player/Mplayer.java</file>
+        <file>file:/Users/chris/Documents/workspace_ice/datalinks/MPlayer/src/main/java/com/datalinks/media/backend/MediaBackendServices.java</file>
+      </group>
+    </open-files>
   </auxiliary>
 </gradle-project-properties>
