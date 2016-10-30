@@ -1,0 +1,66 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.1.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'spring-boot'
+
+jar {
+    baseName = 'bplayer-ams'
+    version =  '0.1.0'
+}
+
+repositories {
+   maven{
+      url "/Users/chris/Documents/maven_repo/"
+   }
+   mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+    compile("org.springframework.boot:spring-boot-devtools")
+    compile("org.springframework.boot:spring-boot-configuration-processor")
+    compile 'org.apache.httpcomponents:httpclient:4.5'
+    compile group: 'com.sun.jersey', name: 'jersey-client', version: '1.9.1'
+    compile group: 'javax.inject', name: 'javax.inject', version: '1'
+    compile group: 'org.codehaus.jackson', name: 'jackson-mapper-asl', version: '1.9.13'
+    compile group: 'javax.mail', name: 'mail', version: '1.4.7'
+
+
+
+    compile("com.fasterxml.jackson.core:jackson-databind")
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.7'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.7'
+
+    compile group: 'com.microsoft.windowsazure', name: 'azure-core', version: '0.9.0'
+    compile group: 'com.microsoft.windowsazure', name: 'azure-media', version: '0.9.0'
+    compile group: 'com.microsoft.windowsazure', name: 'azure-servicebus', version: '0.9.0'
+    compile group: 'com.microsoft.windowsazure', name: 'azure-serviceruntime', version: '0.9.0'
+    compile group: 'com.microsoft.windowsazure', name: 'azure-storage', version: '4.0.0'
+    compile group: 'com.microsoft.windowsazure', name: 'azure-svc-mgmt', version: '0.9.0'
+    compile group: 'com.microsoft.windowsazure', name: 'azure-svc-mgmt-compute', version: '0.9.0'
+    compile group: 'com.microsoft.windowsazure', name: 'azure-svc-mgmt-media', version: '0.9.0'
+    compile group: 'com.microsoft.windowsazure', name: 'azure-svc-mgmt-network', version: '0.9.0'
+    compile group: 'com.microsoft.windowsazure', name: 'azure-svc-mgmt-scheduler', version: '0.9.0'
+    compile group: 'com.microsoft.windowsazure', name: 'azure-svc-mgmt-sql', version: '0.9.0'
+    compile group: 'com.microsoft.windowsazure', name: 'azure-svc-mgmt-storage', version: '0.9.0'
+    compile group: 'com.microsoft.windowsazure', name: 'azure-svc-mgmt-websites', version: '0.9.0'
+    compile group: 'com.microsoft.windowsazure', name: 'azure-tracing-util', version: '0.9.0'
+
+    compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.7'
+    compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.7'
+
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+}
+

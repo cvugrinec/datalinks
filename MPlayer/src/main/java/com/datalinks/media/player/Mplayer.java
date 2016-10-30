@@ -12,9 +12,11 @@ public class Mplayer  extends Application{
     private Scene scene;
     private static String TITLE = "DL Media Player";
     
-    public static void main(String[] args) {
+/*
+public static void main(String[] args) {
         launch(args);
     }
+ */
 
     @Override
     public void start(Stage stage) throws Exception {

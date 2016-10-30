@@ -1,0 +1,15 @@
+{
+  "groups": [{
+    "name": "storage",
+    "type": "com.datalinks.media.backend.storage.StorageProperties",
+    "sourceType": "com.datalinks.media.backend.storage.StorageProperties"
+  }],
+  "properties": [{
+    "name": "storage.location",
+    "type": "java.lang.String",
+    "description": "Folder location for storing files",
+    "sourceType": "com.datalinks.media.backend.storage.StorageProperties",
+    "defaultValue": "upload-dir"
+  }],
+  "hints": []
+}
