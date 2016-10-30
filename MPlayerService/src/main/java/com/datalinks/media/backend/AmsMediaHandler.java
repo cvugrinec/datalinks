@@ -191,8 +191,8 @@ public class AmsMediaHandler {
         AccessPolicyInfo originAccessPolicy;
         LocatorInfo originLocator = null;
 
-        // Create a 30-day readonly AccessPolicy
-        double durationInMinutes = 60 * 24 * 30;
+        // Create a 90-day readonly AccessPolicy
+        double durationInMinutes = 60 * 24 * 90;
         originAccessPolicy = mediaService.create(
                 AccessPolicy.create("Streaming policy", durationInMinutes, EnumSet.of(AccessPolicyPermission.READ)));
 
