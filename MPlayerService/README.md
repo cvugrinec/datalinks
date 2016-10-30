@@ -14,7 +14,7 @@ This demo demonstrates the following:
  * Playing the Media with the Azure Media Player
 
 How to set this up
-  * If you are not interested in the code...skip the setting up required libs part...just do a java -jar build/libs/bplayer-ams-0.1.0.jar
+  * If you are not interested in the code...skip the setting up required libs and gradle part...just do a java -jar build/libs/bplayer-ams-0.1.0.jar
   * setting up required libs
     * cd other
     * execute the following script: setinlocalmvnrepo.sh ....this will put all your required dependencies in your local maven repo
@@ -22,7 +22,7 @@ How to set this up
   * build the project with gradle: gradle clean build
   * java -jar build/libs/bplayer-ams-0.1.0.jar
   * this will spin up a springboot app, which you can access by entering: http://localhost:8080
-  * You can upload the media to Azure the repository if you have a key....I will share this key with my current project members 
+  * You can upload the media to Azure the repository if you have a key....I will share this key with my current project members...Of course the key you will see in the demo below has been recreated :)
 
 * See the demo:
   * http://datalinks.nl/azure-demo.html?url=http://tstmediaservice1.streaming.mediaservices.windows.net/b50ec8b9-4c30-4434-ae22-83bf60249baf/ams-demo.ism/manifest
