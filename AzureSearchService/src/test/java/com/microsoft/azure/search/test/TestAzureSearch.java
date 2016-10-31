@@ -20,9 +20,9 @@ import org.testng.annotations.Test;
  */
 public class TestAzureSearch {
 
-    private static final String SERVICE_NAME = "YOUR SERVICE NAME ..without domain extension";
+    private static final String SERVICE_NAME = "YOUR SRV NAME";
     private static final String INDEX_NAME = "sample";
-    private static final String API_KEY = "YOUR  KEY";
+    private static final String API_KEY = "YOUR API KEY";
     private static final Logger logger = Logger.getLogger("AzureSearchTest");
 
     SearchIndexClient indexClient = null;
@@ -47,8 +47,8 @@ public class TestAzureSearch {
         result.getHits().forEach((hit) -> {
             logger.log(Level.INFO, "Id: {0} name {1}, score {2}",new Object[]{hit.getDocument().get("id"), hit.getDocument().get("name"), hit.getScore()});
         });
-        Assert.assertNotNull(result);
-        Assert.assertEquals(result.getCount(), 4);
+        Assert.assertNotNull(result,"Test if result not null");
+        Assert.assertEquals(result.getCount(), 4,"Test if total of result is 4 records");
 
     }
   
@@ -71,9 +71,7 @@ public class TestAzureSearch {
         options.setRequireAllTerms(true);
         options.setMinimumCoverage(0.75);
 
-        Assert.assertNotNull(indexClient);
         IndexSearchResult result = indexClient.search("second name", options);
-        Assert.assertNotNull(result);
         
         
         // list search hits
@@ -102,7 +100,11 @@ public class TestAzureSearch {
             }
         });
         
-        //  TODO:   Add testCases
+        //  TODO:   Add more testCases
+        Assert.assertNotNull(result,"Test if result not null");
+        Assert.assertEquals(result.getCount(),2,"Test Expected count");
+        Assert.assertEquals(result.getCoverage(),100.0,"Test Expected coverage");
+
     }
 
     @Test()
@@ -115,7 +117,10 @@ public class TestAzureSearch {
         logger.log(Level.INFO, "Created: {0}",document.get("created"));
         logger.log(Level.INFO, "Rating: {0}",document.get("rating"));
 
-        //  TODO:   Add testCases
+        //  TODO:   Add more testCases
+        Assert.assertEquals(document.get("name"),"second name","Test if expected name is returned");
+        Assert.assertEquals(document.get("rating"),11,"Test if expected rating is returned");
+
     }
 
     @Test()
@@ -126,12 +131,13 @@ public class TestAzureSearch {
         options.setFuzzy(true);
         IndexSuggestResult result = indexClient.suggest("secp", "sg", options);
         logger.log(Level.INFO, "Suggest results, coverage: {0}",(result.getCoverage() == null ? "-" : result.getCoverage().toString()));
+        
         result.getHits().forEach((hit) -> {
             logger.log(Level.INFO, "Text: {0} (id: {1}",new Object[]{hit.getText(), hit.getDocument().get("id")});
         }); 
 
-        //  TODO:   Add testCases
-
+        //  TODO:   Add more testCases
+        Assert.assertEquals(result.getHits().size(),2,"Test Expected hits");
     }
     
     
