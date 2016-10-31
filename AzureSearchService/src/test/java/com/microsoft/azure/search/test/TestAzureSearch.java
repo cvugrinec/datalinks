@@ -1,10 +1,5 @@
 package com.microsoft.azure.search.test;
 
-import com.microsoft.azure.search.samples.IndexBatchOperation;
-import com.microsoft.azure.search.samples.IndexBatchOperationResult;
-import com.microsoft.azure.search.samples.IndexBatchResult;
-import com.microsoft.azure.search.samples.IndexDefinition;
-import com.microsoft.azure.search.samples.IndexField;
 import com.microsoft.azure.search.samples.IndexSearchOptions;
 import com.microsoft.azure.search.samples.IndexSearchResult;
 import com.microsoft.azure.search.samples.IndexSuggestOptions;
@@ -12,10 +7,6 @@ import com.microsoft.azure.search.samples.IndexSuggestResult;
 import com.microsoft.azure.search.samples.SearchIndexClient;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
