@@ -23,7 +23,7 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">2</div>
+<div class="counter">4</div>
 <p>tests</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.202s</div>
+<div class="counter">0.930s</div>
 <p>duration</p>
 </div>
 </td>
@@ -78,13 +78,23 @@
 </tr>
 </thead>
 <tr>
+<td class="success">testLookup</td>
+<td>0.496s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
 <td class="success">testSearchAllFeatures</td>
-<td>0.170s</td>
+<td>0.098s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">testSearchSimple</td>
-<td>0.032s</td>
+<td>0.033s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testSuggestions</td>
+<td>0.303s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -92,53 +102,80 @@
 <div id="tab1" class="tab">
 <h2>Standard error</h2>
 <span class="code">
-<pre>okt 31, 2016 3:11:54 AM com.microsoft.azure.search.test.TestAzureSearch testSearchAllFeatures
+<pre>okt 31, 2016 3:55:41 AM com.microsoft.azure.search.test.TestAzureSearch testLookup
+INFO: 
+
+testLookup
+
+
+okt 31, 2016 3:55:42 AM com.microsoft.azure.search.test.TestAzureSearch testLookup
+INFO: Document lookup, key='2'
+okt 31, 2016 3:55:42 AM com.microsoft.azure.search.test.TestAzureSearch testLookup
+INFO: Name: second name
+okt 31, 2016 3:55:42 AM com.microsoft.azure.search.test.TestAzureSearch testLookup
+INFO: Created: 2016-10-31T02:55:40Z
+okt 31, 2016 3:55:42 AM com.microsoft.azure.search.test.TestAzureSearch testLookup
+INFO: Rating: 11
+okt 31, 2016 3:55:42 AM com.microsoft.azure.search.test.TestAzureSearch testSearchAllFeatures
 INFO: 
 
 testSearchAllFeatures
 
 
-okt 31, 2016 3:11:54 AM com.microsoft.azure.search.test.TestAzureSearch testSearchAllFeatures
+okt 31, 2016 3:55:42 AM com.microsoft.azure.search.test.TestAzureSearch testSearchAllFeatures
 INFO: Found 2 hits, coverage: 100
-okt 31, 2016 3:11:54 AM com.microsoft.azure.search.test.TestAzureSearch lambda$testSearchAllFeatures$2
+okt 31, 2016 3:55:42 AM com.microsoft.azure.search.test.TestAzureSearch lambda$testSearchAllFeatures$1
 INFO: id 3, name: second second name, score: 0,262 
-okt 31, 2016 3:11:54 AM com.microsoft.azure.search.test.TestAzureSearch testSearchAllFeatures
+okt 31, 2016 3:55:42 AM com.microsoft.azure.search.test.TestAzureSearch testSearchAllFeatures
 INFO: List Facets
-okt 31, 2016 3:11:54 AM com.microsoft.azure.search.test.TestAzureSearch lambda$testSearchAllFeatures$3
+okt 31, 2016 3:55:42 AM com.microsoft.azure.search.test.TestAzureSearch lambda$testSearchAllFeatures$2
 INFO: Field : 
-okt 31, 2016 3:11:54 AM com.microsoft.azure.search.test.TestAzureSearch lambda$testSearchAllFeatures$4
-INFO: 2016-10-31T02:11:53Z: 2 
-okt 31, 2016 3:11:54 AM com.microsoft.azure.search.test.TestAzureSearch lambda$testSearchAllFeatures$3
+okt 31, 2016 3:55:42 AM com.microsoft.azure.search.test.TestAzureSearch lambda$testSearchAllFeatures$3
+INFO: 2016-10-31T02:55:40Z: 2 
+okt 31, 2016 3:55:42 AM com.microsoft.azure.search.test.TestAzureSearch lambda$testSearchAllFeatures$2
 INFO: Field : 
-okt 31, 2016 3:11:54 AM com.microsoft.azure.search.test.TestAzureSearch lambda$testSearchAllFeatures$4
+okt 31, 2016 3:55:42 AM com.microsoft.azure.search.test.TestAzureSearch lambda$testSearchAllFeatures$3
 INFO: min-11: 0 
-okt 31, 2016 3:11:54 AM com.microsoft.azure.search.test.TestAzureSearch lambda$testSearchAllFeatures$4
+okt 31, 2016 3:55:42 AM com.microsoft.azure.search.test.TestAzureSearch lambda$testSearchAllFeatures$3
 INFO: 11-13: 2 
-okt 31, 2016 3:11:54 AM com.microsoft.azure.search.test.TestAzureSearch lambda$testSearchAllFeatures$4
+okt 31, 2016 3:55:42 AM com.microsoft.azure.search.test.TestAzureSearch lambda$testSearchAllFeatures$3
 INFO: 13-max: 0 
-okt 31, 2016 3:11:54 AM com.microsoft.azure.search.test.TestAzureSearch lambda$testSearchAllFeatures$3
+okt 31, 2016 3:55:42 AM com.microsoft.azure.search.test.TestAzureSearch lambda$testSearchAllFeatures$2
 INFO: Field : 
-okt 31, 2016 3:11:54 AM com.microsoft.azure.search.test.TestAzureSearch lambda$testSearchAllFeatures$4
+okt 31, 2016 3:55:42 AM com.microsoft.azure.search.test.TestAzureSearch lambda$testSearchAllFeatures$3
 INFO: aaa: 2 
-okt 31, 2016 3:11:54 AM com.microsoft.azure.search.test.TestAzureSearch lambda$testSearchAllFeatures$4
+okt 31, 2016 3:55:42 AM com.microsoft.azure.search.test.TestAzureSearch lambda$testSearchAllFeatures$3
 INFO: ccc: 1 
-okt 31, 2016 3:11:54 AM com.microsoft.azure.search.test.TestAzureSearch lambda$testSearchAllFeatures$4
+okt 31, 2016 3:55:42 AM com.microsoft.azure.search.test.TestAzureSearch lambda$testSearchAllFeatures$3
 INFO: eee: 1 
-okt 31, 2016 3:11:54 AM com.microsoft.azure.search.test.TestAzureSearch testSearchSimple
+okt 31, 2016 3:55:42 AM com.microsoft.azure.search.test.TestAzureSearch testSearchSimple
 INFO: 
-	estSearchSimple
+
+testSearchSimple
 
 
-okt 31, 2016 3:11:54 AM com.microsoft.azure.search.test.TestAzureSearch testSearchSimple
+okt 31, 2016 3:55:42 AM com.microsoft.azure.search.test.TestAzureSearch testSearchSimple
 INFO: Found 4 hits
-okt 31, 2016 3:11:54 AM com.microsoft.azure.search.test.TestAzureSearch lambda$testSearchSimple$1
+okt 31, 2016 3:55:42 AM com.microsoft.azure.search.test.TestAzureSearch lambda$testSearchSimple$0
 INFO: Id: 4 name third name, score 0,192
-okt 31, 2016 3:11:54 AM com.microsoft.azure.search.test.TestAzureSearch lambda$testSearchSimple$1
+okt 31, 2016 3:55:42 AM com.microsoft.azure.search.test.TestAzureSearch lambda$testSearchSimple$0
 INFO: Id: 1 name first name, score 0,192
-okt 31, 2016 3:11:54 AM com.microsoft.azure.search.test.TestAzureSearch lambda$testSearchSimple$1
+okt 31, 2016 3:55:42 AM com.microsoft.azure.search.test.TestAzureSearch lambda$testSearchSimple$0
 INFO: Id: 2 name second name, score 0,192
-okt 31, 2016 3:11:54 AM com.microsoft.azure.search.test.TestAzureSearch lambda$testSearchSimple$1
+okt 31, 2016 3:55:42 AM com.microsoft.azure.search.test.TestAzureSearch lambda$testSearchSimple$0
 INFO: Id: 3 name second second name, score 0,153
+okt 31, 2016 3:55:42 AM com.microsoft.azure.search.test.TestAzureSearch testSuggestions
+INFO: 
+
+testSuggestions
+
+
+okt 31, 2016 3:55:42 AM com.microsoft.azure.search.test.TestAzureSearch testSuggestions
+INFO: Suggest results, coverage: -
+okt 31, 2016 3:55:42 AM com.microsoft.azure.search.test.TestAzureSearch lambda$testSuggestions$4
+INFO: Text: second second name (id: 3
+okt 31, 2016 3:55:42 AM com.microsoft.azure.search.test.TestAzureSearch lambda$testSuggestions$4
+INFO: Text: second name (id: 2
 </pre>
 </span>
 </div>
@@ -150,7 +187,7 @@ INFO: Id: 3 name second second name, score 0,153
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 2.13</a> at 31-okt-2016 3:11:54</p>
+<a href="http://www.gradle.org">Gradle 2.13</a> at 31-okt-2016 3:55:42</p>
 </div>
 </div>
 </body>
