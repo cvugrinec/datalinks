@@ -22,7 +22,7 @@ public class TestAzureSearch {
 
     private static final String SERVICE_NAME = "bplayer";
     private static final String INDEX_NAME = "sample";
-    private static final String API_KEY = "YOUR API KEY";
+    private static final String API_KEY = "294EC66715E0324DC50DE6E5F1875466";
     private static final Logger logger = Logger.getLogger("AzureSearchTest");
 
     SearchIndexClient indexClient = null;
