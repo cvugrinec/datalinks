@@ -39,10 +39,10 @@
     "subnetPrefix": "10.0.0.0/24",
     "publicIPAddressName": "specializedVMPublicIP",
     "publicIPAddressType": "Dynamic",
-    "virtualNetworkName": "chrisvnetwork",
+    "virtualNetworkName": "chrisvnetwork2",
     "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
     "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]",
-    "nicName": "chrisvnetworkNic"
+    "nicName": "chrisvnetwork2Nic"
   },
   "resources": [
     {

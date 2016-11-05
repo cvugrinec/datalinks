@@ -9,7 +9,7 @@
       "value": "Windows or Linux"
     },
     "vmSize": {
-      "value": "Standard_A2"
+      "value": "Standard_DS1_v2"
     },
     "vmName": {
       "value": "vm-name"
