@@ -42,7 +42,7 @@
     "virtualNetworkName": "chrisvnetwork2",
     "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
     "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]", 
-    "nicName":  "[concat(variables('vmName'),'-Nic')]" 
+    "nicName":  "[concat(parameters('vmName'),'-Nic')]" 
   },
   "resources": [
     {
