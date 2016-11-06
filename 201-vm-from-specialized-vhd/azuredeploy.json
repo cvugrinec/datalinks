@@ -30,12 +30,6 @@
       "metadata": {
         "description": "Name of the VM"
       }
-    },
-    "nicName": {
-      "type": "string",
-      "metadata": {
-        "description": "Name of NIC"
-      }
     }
   },
   "variables": {
@@ -47,7 +41,8 @@
     "publicIPAddressType": "Dynamic",
     "virtualNetworkName": "chrisvnetwork2",
     "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
-    "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]"
+    "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]", 
+    "nicName":  "[concat(variables('vmName'),'-Nic')]" 
   },
   "resources": [
     {
@@ -74,7 +69,7 @@
     {
       "apiVersion": "[variables('api-version')]",
       "type": "Microsoft.Network/networkInterfaces",
-      "name": "[parameters('nicName')]",
+      "name": "[variables('nicName')]",
       "location": "[resourceGroup().location]",
       "dependsOn": [
         "[concat('Microsoft.Network/publicIPAddresses/', variables('publicIPAddressName'))]",
@@ -112,7 +107,7 @@
       "name": "[parameters('vmName')]",
       "location": "[resourceGroup().location]",
       "dependsOn": [
-        "[concat('Microsoft.Network/networkInterfaces/', parameters('nicName'))]"
+        "[concat('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
       ],
       "properties": {
         "hardwareProfile": {
@@ -132,7 +127,7 @@
         "networkProfile": {
           "networkInterfaces": [
             {
-              "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('nicName'))]"
+              "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('nicName'))]"
             }
           ]
         }
