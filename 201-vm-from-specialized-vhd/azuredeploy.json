@@ -126,7 +126,7 @@
        		{
             		"comments": "Generalized from resource: '/subscriptions/4adba00c-de3d-4526-a290-0c4fa2421f84/resourceGroups/ing2/providers/Microsoft.Compute/virtualMachines/customscriptLinuxVM/extensions/CustomScriptForLinux'.",
             		"type": "Microsoft.Compute/virtualMachines/extensions",
-            		"name": "testChrisCustomScript"
+            		"name": "testChrisCustomScript",
             		"apiVersion": "2016-03-30",
             		"location": "eastus",
             		"properties": {
