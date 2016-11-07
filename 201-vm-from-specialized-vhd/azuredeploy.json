@@ -42,8 +42,7 @@
     "virtualNetworkName": "chrisvnetwork2",
     "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
     "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]", 
-    "nicName":  "[concat(parameters('vmName'),'-',resourceGroup().location)]",
-    "ipConfigName":  "[concat(parameters('vmName'),'-','ipconfig')]" 
+    "nicName":  "[concat(parameters('vmName'),'-',resourceGroup().location)]"
   },
   "resources": [
     {
@@ -79,7 +78,7 @@
       "properties": {
         "ipConfigurations": [
           {
-            "name": "[variables('ipConfigName')]",
+            "name": "ipconfig2",
             "properties": {
               "privateIPAllocationMethod": "Dynamic",
               "publicIPAddress": {
