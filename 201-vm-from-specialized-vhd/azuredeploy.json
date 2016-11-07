@@ -43,6 +43,7 @@
     "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
     "subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]", 
     "nicName":  "[concat(parameters('vmName'),'-',resourceGroup().location)]" 
+    "ipConfigName":  "[concat(parameters('vmName'),'-','ipconfig')]" 
   },
   "resources": [
     {
@@ -78,7 +79,7 @@
       "properties": {
         "ipConfigurations": [
           {
-            "name": "ipconfig1",
+            "name": "[variables('ipConfigName')]",
             "properties": {
               "privateIPAllocationMethod": "Dynamic",
               "publicIPAddress": {
