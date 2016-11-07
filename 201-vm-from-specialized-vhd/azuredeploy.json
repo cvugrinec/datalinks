@@ -115,14 +115,17 @@
         },
         "storageProfile": {
           "osDisk": {
-            "name": "[concat(parameters('vmName'),'-osDisk')]",
-            "osType": "[parameters('osType')]",
-            "caching": "ReadWrite",
-            "vhd": {
-              "uri": "[parameters('osDiskVhdUri')]"
-            },
-            "createOption": "Attach"
-          }
+             "osType": "Linux",
+             "name": "chris-centosvm1.vhd",
+             "createOption": "FromImage",
+             "image": {
+               "uri": "https://chrisdsk1.blob.core.windows.net/vhds/centos.vhd"
+              },
+              "vhd": {
+                 "uri": "https://chrisdsk1.blob.core.windows.net/vhds/centos-vm1.vhd"
+              },
+              "caching": "ReadWrite"
+             }
         },
         "networkProfile": {
           "networkInterfaces": [
