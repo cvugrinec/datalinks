@@ -135,9 +135,6 @@
 				"type": "CustomScriptForLinux",
 				"typeHandlerVersion": "1.2",
 				"settings": {
-					"fileUris": [
-						"https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-ubuntu/mongo-install-ubuntu.sh"
-					],
 					"commandToExecute": "sh touch /tmp/hello_world.txt"
 				}
 			}
