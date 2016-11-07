@@ -30,18 +30,6 @@
 			"metadata": {
 				"description": "Name of the VM"
 			}
-		},
-		"adminUserName": {
-			"type": "string",
-			"metadata": {
-				"description": "Name of the admin user"
-			}
-		},
-		"adminPassword": {
-			"type": "string",
-			"metadata": {
-				"description": "password"
-			}
 		}
 	},
 	"variables": {
@@ -116,11 +104,6 @@
 			"properties": {
 				"hardwareProfile": {
 					"vmSize": "[parameters('vmSize')]"
-				},
-				"osProfile": {
-					"computerName": "[parameters('vmName')]",
-					"adminUsername": "[parameters('adminUserName')]",
-					"adminPassword": "[parameters('adminPassword')]"
 				},
 			        "storageProfile": {
           				"osDisk": {

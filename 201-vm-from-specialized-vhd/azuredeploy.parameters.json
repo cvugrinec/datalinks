@@ -13,12 +13,6 @@
     },
     "vmName": {
       "value": "vm-name"
-    },
-    "adminUserName": {
-      "value": "adminUserName"
-    },
-    "adminPassword": {
-      "value": "adminPassword"
     }
   }
 }
