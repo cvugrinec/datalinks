@@ -130,15 +130,10 @@
         "hardwareProfile": {
           "vmSize": "[parameters('vmSize')]"
         },
-        "osProfile": {
-          "computerName": "[parameters('vmName')]",
-          "adminUsername": "[parameters('adminUserName')]",
-          "adminPassword": "[parameters('adminPassword')]"
-        },
         "storageProfile": {
           "osDisk": {
              "osType": "Linux",
-             "name": "chris-centosvm1.vhd",
+             "name": "centos.vhd",
              "createOption": "FromImage",
              "image": {
                "uri": "https://chrisdsk3.blob.core.windows.net/images/centos.vhd"
