@@ -144,7 +144,7 @@
                "uri": "https://chrisdsk3.blob.core.windows.net/images/centos.vhd"
               },
               "vhd": {
-                 "uri": "[concat('https://chrisdsk3.blob.core.windows.net/vhds/',parameters('vmName'),'vhd')]"
+                 "uri": "[concat('https://chrisdsk3.blob.core.windows.net/vhds/',parameters('vmName'),'.vhd')]"
               },
               "caching": "ReadWrite"
              }
