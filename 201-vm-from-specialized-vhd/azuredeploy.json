@@ -31,6 +31,18 @@
         "description": "Name of the VM"
       }
     },
+    "adminUserName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the admin user"
+      }
+    },
+    "adminPassword": {
+      "type": "string",
+      "metadata": {
+        "description": "password"
+      }
+    },
     "publicIpAddressName": {
       "type": "string",
       "metadata": {
@@ -120,8 +132,8 @@
         },
         "osProfile": {
           "computerName": "[parameters('vmName')]",
-          "adminUsername": "chris",
-          "adminPassword": "NovemberDecember2016!"
+          "adminUsername": "[parameters('adminUserName')]",
+          "adminPassword": "[parameters('adminPassword')]"
         },
         "storageProfile": {
           "osDisk": {
@@ -129,10 +141,10 @@
              "name": "chris-centosvm1.vhd",
              "createOption": "FromImage",
              "image": {
-               "uri": "https://chrisdsk1.blob.core.windows.net/vhds/centos.vhd"
+               "uri": "https://chrisdsk3.blob.core.windows.net/images/centos.vhd"
               },
               "vhd": {
-                 "uri": "https://chrisdsk1.blob.core.windows.net/vhds/centos-vm1.vhd"
+                 "uri": "[concat('https://chrisdsk3.blob.core.windows.net/vhds/',parameters('vmName'),'vhd')]"
               },
               "caching": "ReadWrite"
              }
