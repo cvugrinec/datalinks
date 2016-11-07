@@ -151,7 +151,7 @@
 		"type": "Microsoft.Compute/virtualMachines/extensions",
 		"name": "chrisCustomScriptTest",
 		"apiVersion": "0.1",
-		"location": "[resourceGroup().location)]",
+		"location": "[resourceGroup().location]",
 		"dependsOn": [
 			"[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
 		],
