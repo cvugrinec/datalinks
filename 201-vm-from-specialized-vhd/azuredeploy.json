@@ -54,7 +54,7 @@
 		"vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
 		"subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]",
 		"nicName": "[concat(parameters('vmName'),'-',resourceGroup().location)]",
-		"publicIpAddressName": "[concat(parameters('vmName'),'-nic']"
+		"publicIpAddressName": "[concat(parameters('vmName'),'-nic')]"
 	},
 	"resources": [{
 			"apiVersion": "[variables('api-version')]",
