@@ -42,12 +42,6 @@
 			"metadata": {
 				"description": "password"
 			}
-		},
-		"publicIpAddressName": {
-			"type": "string",
-			"metadata": {
-				"description": "Name of Public IP"
-			}
 		}
 	},
 	"variables": {
@@ -56,10 +50,11 @@
 		"subnetName": "Subnet",
 		"subnetPrefix": "10.0.0.0/24",
 		"publicIPAddressType": "Dynamic",
-		"virtualNetworkName": "chrisvnetwork2",
+		"virtualNetworkName": "chrisvnetwork",
 		"vnetID": "[resourceId('Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
 		"subnetRef": "[concat(variables('vnetID'),'/subnets/',variables('subnetName'))]",
-		"nicName": "[concat(parameters('vmName'),'-',resourceGroup().location)]"
+		"nicName": "[concat(parameters('vmName'),'-',resourceGroup().location)]",
+		"publicIpAddressName": "[concat(parameters('vmName'),'-nic']"
 	},
 	"resources": [{
 			"apiVersion": "[variables('api-version')]",
@@ -85,7 +80,7 @@
 			"name": "[variables('nicName')]",
 			"location": "[resourceGroup().location]",
 			"dependsOn": [
-				"[concat('Microsoft.Network/publicIPAddresses/', parameters('publicIpAddressName'))]",
+				"[concat('Microsoft.Network/publicIPAddresses/', variables('publicIpAddressName'))]",
 				"[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
 			],
 			"properties": {
@@ -94,7 +89,7 @@
 					"properties": {
 						"privateIPAllocationMethod": "Dynamic",
 						"publicIPAddress": {
-							"id": "[resourceId('Microsoft.Network/publicIPAddresses',parameters('publicIpAddressName'))]"
+							"id": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIpAddressName'))]"
 						},
 						"subnet": {
 							"id": "[variables('subnetRef')]"
@@ -105,7 +100,7 @@
 		}, {
 			"apiVersion": "[variables('api-version')]",
 			"type": "Microsoft.Network/publicIPAddresses",
-			"name": "[parameters('publicIpAddressName')]",
+			"name": "[variables('publicIpAddressName')]",
 			"location": "[resourceGroup().location]",
 			"properties": {
 				"publicIPAllocationMethod": "[variables('publicIPAddressType')]"

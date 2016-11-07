@@ -19,9 +19,6 @@
     },
     "adminPassword": {
       "value": "adminPassword"
-    },
-    "publicIpAddressName": {
-      "value": "somePublicIpAddressName"
     }
   }
 }
