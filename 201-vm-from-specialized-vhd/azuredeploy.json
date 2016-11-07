@@ -122,6 +122,27 @@
 					}]
 				}
 			}
-		}
+		},
+              {
+                  "type": "extensions",
+                  "name": "CustomScriptExtension",
+                  "apiVersion": "2015-05-01-preview",
+                  "location": "[resourceGroup().location]",
+                  "dependsOn": [
+                      "[parameters('vmName')]"
+                  ],
+                  "properties": {
+                      "publisher": "Microsoft.Compute",
+                      "type": "CustomScriptExtension",
+                      "typeHandlerVersion": "1.8",
+                      "autoUpgradeMinorVersion": true,
+                      "settings": {
+                      "fileUris": [
+                          "[concat(parameters('_artifactsLocation'), '/', variables('ScriptFolder'), '/', variables('ScriptFileName'), parameters('_artifactsLocationSasToken'))]"
+                        ],
+                      "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File ', variables('ScriptFolder'), '/', variables('ScriptFileName'))]"
+                        }
+                    }
+               }
 	]
 }
