@@ -30,7 +30,34 @@
 			"metadata": {
 				"description": "Name of the VM"
 			}
-		}
+		},
+    		"fileUris": {
+      			"type": "string",
+      			"defaultValue": "",
+      			"metadata": {
+    		    		"description": "The uri list of files. Split by a space."
+      			}
+    		},
+    		"commandToExecute": {
+      			"type": "string",
+      			"metadata": {
+        			"description": "The command to execute."
+      			}
+    		},
+    		"customScriptStorageAccountName": {
+      			"type": "string",
+      			"defaultValue": "",
+      			"metadata": {
+        			"description": "The name of storage account."
+      			}
+    		},
+    		"customScriptStorageAccountKey": {
+      			"type": "string",
+      			"defaultValue": "",
+      			"metadata": {
+        			"description": "The access key of storage account."
+      			}
+    		}
 	},
 	"variables": {
 		"api-version": "2015-06-15",
@@ -123,26 +150,28 @@
 				}
 			}
 		},
-              {
-                  "type": "extensions",
-                  "name": "CustomScriptExtension",
-                  "apiVersion": "2015-05-01-preview",
-                  "location": "[resourceGroup().location]",
-                  "dependsOn": [
-                      "[parameters('vmName')]"
-                  ],
-                  "properties": {
-                      "publisher": "Microsoft.Compute",
-                      "type": "CustomScriptExtension",
-                      "typeHandlerVersion": "1.8",
-                      "autoUpgradeMinorVersion": true,
-                      "settings": {
-                      "fileUris": [
-                          "[concat(parameters('_artifactsLocation'), '/', variables('ScriptFolder'), '/', variables('ScriptFileName'), parameters('_artifactsLocationSasToken'))]"
-                        ],
-                      "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File ', variables('ScriptFolder'), '/', variables('ScriptFileName'))]"
-                        }
-                    }
-               }
+    {
+      "type": "Microsoft.Compute/virtualMachines/extensions",
+      "name": "[concat(parameters('vmName'),'/', 'CustomScript')]",
+      "apiVersion": "2015-06-15"
+      "location": "[resourceGroup().location]",
+      "dependsOn": [
+        "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
+      ],
+      "properties": {
+        "publisher": "Microsoft.Azure.Extensions",
+        "type": "CustomScript",
+        "typeHandlerVersion": "2.0",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+          "fileUris": "[split(parameters('fileUris'), ' ')]",
+          "commandToExecute": "[parameters('commandToExecute')]"
+        },
+        "protectedSettings": {
+          "storageAccountName": "[parameters('customScriptStorageAccountName')]",
+          "storageAccountKey": "[parameters('customScriptStorageAccountKey')]"
+        }
+      }
+    }
 	]
 }
