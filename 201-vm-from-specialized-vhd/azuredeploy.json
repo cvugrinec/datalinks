@@ -118,6 +118,11 @@
         "hardwareProfile": {
           "vmSize": "[parameters('vmSize')]"
         },
+        "osProfile": {
+          "computerName": "[variables('vmName')]",
+          "adminUsername": "chris",
+          "adminPassword": "NovemberDecember2016!"
+        },
         "storageProfile": {
           "osDisk": {
              "osType": "Linux",
