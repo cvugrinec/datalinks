@@ -62,108 +62,110 @@
 		"nicName": "[concat(parameters('vmName'),'-',resourceGroup().location)]"
 	},
 	"resources": [{
-		"apiVersion": "[variables('api-version')]",
-		"type": "Microsoft.Network/virtualNetworks",
-		"name": "[variables('virtualNetworkName')]",
-		"location": "[resourceGroup().location]",
-		"properties": {
-			"addressSpace": {
-				"addressPrefixes": [
-					"[variables('addressPrefix')]"
-				]
-			},
-			"subnets": [{
-				"name": "[variables('subnetName')]",
-				"properties": {
-					"addressPrefix": "[variables('subnetPrefix')]"
-				}
-			}]
-		}
-	}, {
-		"apiVersion": "[variables('api-version')]",
-		"type": "Microsoft.Network/networkInterfaces",
-		"name": "[variables('nicName')]",
-		"location": "[resourceGroup().location]",
-		"dependsOn": [
-			"[concat('Microsoft.Network/publicIPAddresses/', parameters('publicIpAddressName'))]",
-			"[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
-		],
-		"properties": {
-			"ipConfigurations": [{
-				"name": "ipconfig2",
-				"properties": {
-					"privateIPAllocationMethod": "Dynamic",
-					"publicIPAddress": {
-						"id": "[resourceId('Microsoft.Network/publicIPAddresses',parameters('publicIpAddressName'))]"
-					},
-					"subnet": {
-						"id": "[variables('subnetRef')]"
+			"apiVersion": "[variables('api-version')]",
+			"type": "Microsoft.Network/virtualNetworks",
+			"name": "[variables('virtualNetworkName')]",
+			"location": "[resourceGroup().location]",
+			"properties": {
+				"addressSpace": {
+					"addressPrefixes": [
+						"[variables('addressPrefix')]"
+					]
+				},
+				"subnets": [{
+					"name": "[variables('subnetName')]",
+					"properties": {
+						"addressPrefix": "[variables('subnetPrefix')]"
 					}
-				}
-			}]
-		}
-	}, {
-		"apiVersion": "[variables('api-version')]",
-		"type": "Microsoft.Network/publicIPAddresses",
-		"name": "[parameters('publicIpAddressName')]",
-		"location": "[resourceGroup().location]",
-		"properties": {
-			"publicIPAllocationMethod": "[variables('publicIPAddressType')]"
-		}
-	}, {
-		"apiVersion": "[variables('api-version')]",
-		"type": "Microsoft.Compute/virtualMachines",
-		"name": "[parameters('vmName')]",
-		"location": "[resourceGroup().location]",
-		"dependsOn": [
-			"[concat('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
-		],
-		"properties": {
-			"hardwareProfile": {
-				"vmSize": "[parameters('vmSize')]"
-			},
-			"osProfile": {
-				"computerName": "[parameters('vmName')]",
-				"adminUsername": "[parameters('adminUserName')]",
-				"adminPassword": "[parameters('adminPassword')]"
-			},
-			"storageProfile": {
-				"osDisk": {
-					"osType": "Linux",
-					"name": "centos.vhd",
-					"createOption": "FromImage",
-					"image": {
-						"uri": "https://chrisdsk3.blob.core.windows.net/images/centos.vhd"
-					},
-					"vhd": {
-						"uri": "[concat('https://chrisdsk3.blob.core.windows.net/vhds/',parameters('vmName'),'.vhd')]"
-					},
-					"caching": "ReadWrite"
-				}
-			},
-			"networkProfile": {
-				"networkInterfaces": [{
-					"id": "[resourceId('Microsoft.Network/networkInterfaces', variables('nicName'))]"
 				}]
 			}
-		},
-                {
-                "type": "Microsoft.Compute/virtualMachines/extensions",
-                "name": "chrisCustomScriptTest",
-                "apiVersion": "0.1",
-                "location": "[resourceGroup().location]",
-                "dependsOn": [
-                        "[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
-                ],
-                "properties": {
-                        "publisher": "Microsoft.OSTCExtensions",
-                        "type": "CustomScriptForLinux",
-                        "typeHandlerVersion": "1.2",
-                        "settings": {
-                                "commandToExecute": "sh touch /tmp/hello_world.txt"
-                        }
-                }
-            }
-	}
+		}, {
+			"apiVersion": "[variables('api-version')]",
+			"type": "Microsoft.Network/networkInterfaces",
+			"name": "[variables('nicName')]",
+			"location": "[resourceGroup().location]",
+			"dependsOn": [
+				"[concat('Microsoft.Network/publicIPAddresses/', parameters('publicIpAddressName'))]",
+				"[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
+			],
+			"properties": {
+				"ipConfigurations": [{
+					"name": "ipconfig2",
+					"properties": {
+						"privateIPAllocationMethod": "Dynamic",
+						"publicIPAddress": {
+							"id": "[resourceId('Microsoft.Network/publicIPAddresses',parameters('publicIpAddressName'))]"
+						},
+						"subnet": {
+							"id": "[variables('subnetRef')]"
+						}
+					}
+				}]
+			}
+		}, {
+			"apiVersion": "[variables('api-version')]",
+			"type": "Microsoft.Network/publicIPAddresses",
+			"name": "[parameters('publicIpAddressName')]",
+			"location": "[resourceGroup().location]",
+			"properties": {
+				"publicIPAllocationMethod": "[variables('publicIPAddressType')]"
+			}
+		}, {
+			"apiVersion": "[variables('api-version')]",
+			"type": "Microsoft.Compute/virtualMachines",
+			"name": "[parameters('vmName')]",
+			"location": "[resourceGroup().location]",
+			"dependsOn": [
+				"[concat('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
+			],
+			"properties": {
+				"hardwareProfile": {
+					"vmSize": "[parameters('vmSize')]"
+				},
+				"osProfile": {
+					"computerName": "[parameters('vmName')]",
+					"adminUsername": "[parameters('adminUserName')]",
+					"adminPassword": "[parameters('adminPassword')]"
+				},
+				"storageProfile": {
+					"osDisk": {
+						"osType": "Linux",
+						"name": "centos.vhd",
+						"createOption": "FromImage",
+						"image": {
+							"uri": "https://chrisdsk3.blob.core.windows.net/images/centos.vhd"
+						},
+						"vhd": {
+							"uri": "[concat('https://chrisdsk3.blob.core.windows.net/vhds/',parameters('vmName'),'.vhd')]"
+						},
+						"caching": "ReadWrite"
+					}
+				},
+				"networkProfile": {
+					"networkInterfaces": [{
+						"id": "[resourceId('Microsoft.Network/networkInterfaces', variables('nicName'))]"
+					}]
+				}
+			}
+		}, {
+			"type": "Microsoft.Compute/virtualMachines/extensions",
+			"name": "[concat(parameters('vmName'),'/chrisCustomScript')]",
+			"apiVersion": "0.1-preview",
+			"location": "[resourceGroup().location]",
+			"dependsOn": [
+				"[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
+			],
+			"properties": {
+				"publisher": "Microsoft.OSTCExtensions",
+				"type": "CustomScriptForLinux",
+				"typeHandlerVersion": "1.2",
+				"settings": {
+					"fileUris": [
+						"https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-ubuntu/mongo-install-ubuntu.sh"
+					],
+					"commandToExecute": "sh touch /tmp/hello_world.txt"
+				}
+			}
+		}
 	]
 }
