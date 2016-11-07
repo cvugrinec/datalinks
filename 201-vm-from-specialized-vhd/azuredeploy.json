@@ -122,22 +122,26 @@
 					}]
 				}
 			}
-		}, {
-			"type": "Microsoft.Compute/virtualMachines/extensions",
-			"name": "[concat(parameters('vmName'),'/chrisCustomScript')]",
-			"apiVersion": "2015-05-01-preview",
-			"location": "[resourceGroup().location]",
-			"dependsOn": [
-				"[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
-			],
-			"properties": {
-				"publisher": "Microsoft.OSTCExtensions",
-				"type": "CustomScriptForLinux",
-				"typeHandlerVersion": "1.2",
-				"settings": {
-					"commandToExecute": "sh touch /tmp/hello_world.txt"
-				}
-			}
-		}
+		}, 
+       		{
+            		"comments": "Generalized from resource: '/subscriptions/4adba00c-de3d-4526-a290-0c4fa2421f84/resourceGroups/ing2/providers/Microsoft.Compute/virtualMachines/customscriptLinuxVM/extensions/CustomScriptForLinux'.",
+            		"type": "Microsoft.Compute/virtualMachines/extensions",
+            		"name": "testChrisCustomScript"
+            		"apiVersion": "2016-03-30",
+            		"location": "eastus",
+            		"properties": {
+                		"publisher": "Microsoft.OSTCExtensions",
+                		"type": "CustomScriptForLinux",
+                		"typeHandlerVersion": "1.4",
+                		"autoUpgradeMinorVersion": true,
+                		"settings": {
+                    		"fileUris": [
+                        		"https://chrisdsk3.blob.core.windows.net/scripts/test.sh"
+                    		]
+                		},
+                		"protectedSettings": "sh test.sh"
+            		},
+            		"resources": []
+        	}
 	]
 }
