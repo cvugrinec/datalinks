@@ -128,18 +128,10 @@
 					"adminPassword": "[parameters('adminPassword')]"
 				},
 				"storageProfile": {
-					"osDisk": {
-						"osType": "Linux",
-						"name": "centos.vhd",
-						"createOption": "FromImage",
-						"image": {
-							"uri": "https://chrisdsk3.blob.core.windows.net/images/centos.vhd"
-						},
-						"vhd": {
-							"uri": "[concat('https://chrisdsk3.blob.core.windows.net/vhds/',parameters('vmName'),'.vhd')]"
-						},
-						"caching": "ReadWrite"
-					}
+                                        "sourceImage": {
+                                           "id": "https://chrisdsk3.blob.core.windows.net/images/centos.vhd"
+                                        },
+                                        "destinationVhdsContainer": "[concat('https://chrisdsk3.blob.core.windows.net/vhds/',parameters('vmName'),'.vhd')]"
 				},
 				"networkProfile": {
 					"networkInterfaces": [{
