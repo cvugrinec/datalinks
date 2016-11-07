@@ -13,6 +13,9 @@
     },
     "vmName": {
       "value": "vm-name"
+    },
+    "publicIpAddressName": {
+      "value": "somePublicIpAddressName"
     }
   }
 }
