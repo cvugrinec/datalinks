@@ -131,6 +131,7 @@
 					"osDisk": {
  					        "name" : "[concat(parameters('vmName'),'-osDisk')]",
                                                 "osType" : "[parameters('osType')]",
+ 						"createOption" : "Attach",
 						"caching" : "ReadWrite",
 						"image": {
 							"uri": "https://chrisdsk3.blob.core.windows.net/images/centos.vhd"
