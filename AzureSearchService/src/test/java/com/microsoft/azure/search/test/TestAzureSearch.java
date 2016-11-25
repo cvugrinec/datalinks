@@ -129,7 +129,9 @@ public class TestAzureSearch {
 
         IndexSuggestOptions options = new IndexSuggestOptions();
         options.setFuzzy(true);
-        IndexSuggestResult result = indexClient.suggest("secp", "sg", options);
+        String expectedInputString = "th";
+       
+        IndexSuggestResult result = indexClient.suggest(expectedInputString, "sg", options);
         logger.log(Level.INFO, "Suggest results, coverage: {0}",(result.getCoverage() == null ? "-" : result.getCoverage().toString()));
         
         result.getHits().forEach((hit) -> {
@@ -137,7 +139,7 @@ public class TestAzureSearch {
         }); 
 
         //  TODO:   Add more testCases
-        Assert.assertEquals(result.getHits().size(),2,"Test Expected hits");
+        Assert.assertEquals(result.getHits().size(),1,"Test Expected hits for inputstring: "+expectedInputString);
     }
     
     

@@ -1,15 +1,8 @@
 package com.microsoft.azure.search.samples;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonFilter;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonToken;
-import com.fasterxml.jackson.databind.DeserializationContext;
-import com.fasterxml.jackson.databind.JsonDeserializer;
-
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -83,7 +76,7 @@ public class IndexSearchResult {
             jsonMap.remove("@search.score");
             if (jsonMap.containsKey("@search.highlights")) {
                 highlights = (Map<String, String[]>)jsonMap.get("@search.highlights");
-                ArrayList<String> keys = new ArrayList<String>();
+                ArrayList<String> keys = new ArrayList<>();
                 for (String k: highlights.keySet()) {
                     if (k.endsWith("@odata.type")) {
                         keys.add(k);

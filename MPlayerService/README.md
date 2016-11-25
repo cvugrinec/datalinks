@@ -25,5 +25,5 @@ How to set this up
   * You can upload the media to Azure the repository if you have a key....I will share this key with my current project members...Of course the key you will see in the demo below has been recreated :)
 
 * See the demo:
-  * http://datalinks.nl/azure-demo.html?url=http://tstmediaservice1.streaming.mediaservices.windows.net/b50ec8b9-4c30-4434-ae22-83bf60249baf/ams-demo.ism/manifest
+  * https://youtu.be/QRWbWtYd9kc
 
